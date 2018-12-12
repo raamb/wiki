@@ -4,18 +4,19 @@ cd ~/singnet
 export GOPATH=`pwd`
 export SINGNET_REPOS=${GOPATH}/src/github.com/singnet
 export PATH=${GOPATH}/bin:${PATH}
+export PATH=~/.local/bin/:${PATH}
+
 
 cd $SINGNET_REPOS
 mkdir treasurer
 cd treasurer
 
 
-# Configure treasurer server. There is only one difference from the daemon --- we provide real PRIVATE_KEY
+# Configure treasurer server. There is only one difference from the daemon --- we provide PRIVATE_KEY
 
 cat > snetd.config.json << EOF
 {
    "PRIVATE_KEY": "04899d5fd471ce68f84a5ec64e2e4b6b045d8b850599a57f5b307024be01f262",
-   "DAEMON_LISTENING_PORT": 8080,
    "ETHEREUM_JSON_RPC_ENDPOINT": "http://localhost:8545",
    "PASSTHROUGH_ENABLED": true,
    "PASSTHROUGH_ENDPOINT": "http://localhost:7003",
